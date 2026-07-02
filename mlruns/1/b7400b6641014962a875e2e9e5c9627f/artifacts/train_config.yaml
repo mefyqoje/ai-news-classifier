@@ -1,0 +1,18 @@
+data:
+  test_size: 0.2
+  random_state: 42
+
+vectorizer:
+  max_features: 10000
+  ngram_range:
+    - 1
+    - 2
+  min_df: 3
+  max_df: 0.9
+
+model:
+  name: logistic_regression
+  max_iter: 1000
+
+mlflow:
+  experiment_name: AI News Classifier
