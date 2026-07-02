@@ -6,7 +6,7 @@ from news_classifier.predict import predict_category
 
 app = FastAPI(
     title="AI News Classifier API",
-    description="API for classifying news texts into categories",
+    description="API для классификации новостных текстов",
     version="1.0.0",
 )
 
@@ -18,7 +18,7 @@ class PredictionRequest(BaseModel):
 @app.get("/")
 def root():
     return {
-        "message": "AI News Classifier API is running"
+        "message": "AI News Classifier API запущен"
     }
 
 

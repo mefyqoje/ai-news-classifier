@@ -1,3 +1,5 @@
+from typing import Dict, Any
+
 from joblib import load
 
 from news_classifier.config import MODEL_PATH, VECTORIZER_PATH
@@ -11,7 +13,7 @@ def load_artifacts():
     return model, vectorizer
 
 
-def predict_category(text: str) -> dict:
+def predict_category(text: str) -> Dict[str, Any]:
     model, vectorizer = load_artifacts()
 
     clean = clean_text(text)
@@ -32,12 +34,12 @@ def predict_category(text: str) -> dict:
 
 
 if __name__ == "__main__":
-    text = input("Enter news text: ")
+    user_text = input("Введите текст новости: ")
 
-    result = predict_category(text)
+    result = predict_category(user_text)
 
-    print(f"Predicted category: {result['prediction']}")
-    print("Probabilities:")
+    print(f"Предсказанная категория: {result['prediction']}")
+    print("Вероятности:")
 
     for category, probability in result["probabilities"].items():
         print(f"- {category}: {probability:.4f}")

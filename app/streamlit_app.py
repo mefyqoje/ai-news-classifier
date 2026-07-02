@@ -10,31 +10,31 @@ st.set_page_config(
 )
 
 st.title("AI News Classifier")
-st.write("Введите текст новости, и модель определит категорию.")
+st.write("Введите текст новости, и модель определит ее категорию.")
 
 text = st.text_area(
-    "News text",
+    "Текст новости",
     height=200,
-    placeholder="Paste news text here..."
+    placeholder="Вставьте текст новости сюда..."
 )
 
-if st.button("Classify"):
+if st.button("Классифицировать"):
     if not text.strip():
         st.warning("Введите текст новости.")
     else:
         result = predict_category(text)
 
-        st.subheader("Prediction")
+        st.subheader("Предсказанная категория")
         st.success(result["prediction"])
 
-        st.subheader("Probabilities")
+        st.subheader("Вероятности по категориям")
 
         probabilities = result["probabilities"]
 
         for category, probability in sorted(
             probabilities.items(),
             key=lambda item: item[1],
-            reverse=True
+            reverse=True,
         ):
             st.write(f"{category}: {probability:.4f}")
             st.progress(probability)
