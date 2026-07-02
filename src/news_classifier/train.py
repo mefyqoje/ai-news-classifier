@@ -10,6 +10,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, f1_score
 from sklearn.model_selection import train_test_split
 
+from news_classifier.model_factory import create_model
+
 from news_classifier.config import (
     METADATA_PATH,
     MODEL_PATH,
@@ -76,10 +78,7 @@ def main() -> None:
 
         logger.info("Обучение модели...")
 
-        if model_config["name"] == "logistic_regression":
-            model = LogisticRegression(max_iter=model_config["max_iter"])
-        else:
-            raise ValueError(f"Неизвестная модель: {model_config['name']}")
+        model = create_model(model_config)
 
         model.fit(X_train_tfidf, y_train)
 
