@@ -5,5 +5,4 @@ __pycache__/
 .git/
 .env
 notebooks/
-data/raw/
-data/processed/
+models/

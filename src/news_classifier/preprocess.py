@@ -14,9 +14,7 @@ def clean_text(text: str) -> str:
     text = re.sub(r"\s+", " ", text)
 
     words = [
-        lemmatizer.lemmatize(word)
-        for word in text.split()
-        if word not in STOPWORDS
+        lemmatizer.lemmatize(word) for word in text.split() if word not in STOPWORDS
     ]
 
     return " ".join(words)

@@ -2,7 +2,6 @@ import streamlit as st
 
 from news_classifier.predict import predict_category
 
-
 st.set_page_config(
     page_title="AI News Classifier",
     page_icon="📰",
@@ -13,9 +12,7 @@ st.title("AI News Classifier")
 st.write("Введите текст новости, и модель определит ее категорию.")
 
 text = st.text_area(
-    "Текст новости",
-    height=200,
-    placeholder="Вставьте текст новости сюда..."
+    "Текст новости", height=200, placeholder="Вставьте текст новости сюда..."
 )
 
 if st.button("Классифицировать"):

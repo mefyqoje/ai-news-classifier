@@ -1,0 +1,26 @@
+[project]
+name = "ai-news-classifier"
+version = "1.0.0"
+description = "ML-сервис для классификации новостных текстов"
+requires-python = ">=3.11"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "UP",
+    "B"
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]

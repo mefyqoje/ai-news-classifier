@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from news_classifier.predict import predict_category
+from news_classifier.services.model_service import ModelService
 
 
 app = FastAPI(
@@ -10,6 +10,8 @@ app = FastAPI(
     version="1.0.0",
 )
 
+model_service = ModelService()
+
 
 class PredictionRequest(BaseModel):
     text: str
@@ -17,13 +19,17 @@ class PredictionRequest(BaseModel):
 
 @app.get("/")
 def root():
-    return {
-        "message": "AI News Classifier API запущен"
-    }
+    return {"message": "AI News Classifier API запущен"}
 
 
 @app.post("/predict")
 def predict(request: PredictionRequest):
-    result = predict_category(request.text)
+    if not request.text.strip():
+        raise HTTPException(
+            status_code=400,
+            detail="Текст новости не должен быть пустым.",
+        )
+
+    result = model_service.predict(request.text)
 
     return result

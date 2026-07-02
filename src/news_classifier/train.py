@@ -27,7 +27,6 @@ from news_classifier.config import (
 from news_classifier.logger import get_logger
 from news_classifier.preprocess import clean_text
 
-
 logger = get_logger(__name__)
 
 

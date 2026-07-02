@@ -8,11 +8,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python -m nltk.downloader stopwords punkt wordnet omw-1.4
 
-RUN python -m spacy download en_core_web_sm
-
-COPY . .
+COPY data ./data
+COPY src ./src
+COPY app ./app
 
 ENV PYTHONPATH=/app/src
+
+RUN python -m news_classifier.train
 
 EXPOSE 8000
 
