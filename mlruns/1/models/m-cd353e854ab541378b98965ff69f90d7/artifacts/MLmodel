@@ -1,0 +1,23 @@
+artifact_path: file:C:/Users/mefqe/ai-news-classifier/mlruns/1/models/m-cd353e854ab541378b98965ff69f90d7/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.11.0
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.7.1
+    skops_trusted_types: null
+mlflow_version: 3.14.0
+model_id: m-cd353e854ab541378b98965ff69f90d7
+model_size_bytes: 410893
+model_uuid: m-cd353e854ab541378b98965ff69f90d7
+prompts: null
+run_id: 2ebbf49b5ef144d891994baf631ca694
+utc_time_created: '2026-07-02 13:04:05.502108'
