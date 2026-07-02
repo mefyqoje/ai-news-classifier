@@ -1,0 +1,14 @@
+{
+    "model": "Logistic Regression",
+    "vectorizer": "TF-IDF",
+    "accuracy": 0.8853362734288864,
+    "f1_weighted": 0.8843614677063626,
+    "dataset": "20 Newsgroups",
+    "classes": [
+        "alt.atheism",
+        "comp.graphics",
+        "rec.sport.baseball",
+        "sci.med",
+        "talk.politics.misc"
+    ]
+}
