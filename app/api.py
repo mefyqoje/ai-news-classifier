@@ -3,7 +3,6 @@ from pydantic import BaseModel
 
 from news_classifier.services.model_service import ModelService
 
-
 app = FastAPI(
     title="AI News Classifier API",
     description="API для классификации новостных текстов",
